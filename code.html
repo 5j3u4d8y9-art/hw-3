@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="zh-TW"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Wufeng Chaoyang - 霧峰朝陽，共創晨曦</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Work+Sans:wght@400;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed": "#261900",
+                    "tertiary": "#496640",
+                    "primary-fixed-dim": "#ffb59c",
+                    "on-primary-fixed": "#390c00",
+                    "on-primary-container": "#571700",
+                    "on-background": "#1e1b18",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed-variant": "#832700",
+                    "tertiary-fixed-dim": "#afd0a1",
+                    "surface-container-low": "#fbf2ed",
+                    "surface-bright": "#fff8f5",
+                    "on-surface": "#1e1b18",
+                    "inverse-surface": "#34302c",
+                    "background": "#fff8f5",
+                    "surface-container-high": "#efe6e2",
+                    "on-tertiary-fixed-variant": "#324e2a",
+                    "tertiary-fixed": "#caecbc",
+                    "tertiary-container": "#7e9d72",
+                    "surface-tint": "#a93705",
+                    "primary": "#a93705",
+                    "on-secondary-container": "#735200",
+                    "on-primary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "error": "#ba1a1a",
+                    "surface-container-highest": "#e9e1dc",
+                    "secondary-fixed": "#ffdea4",
+                    "on-secondary": "#ffffff",
+                    "surface": "#fff8f5",
+                    "on-tertiary-fixed": "#062104",
+                    "on-error": "#ffffff",
+                    "primary-fixed": "#ffdbd0",
+                    "surface-dim": "#e1d8d4",
+                    "secondary-container": "#fdc656",
+                    "on-tertiary-container": "#193313",
+                    "inverse-primary": "#ffb59c",
+                    "secondary": "#7b5800",
+                    "surface-container": "#f5ece7",
+                    "outline": "#8c7169",
+                    "inverse-on-surface": "#f8efea",
+                    "primary-container": "#f26b3a",
+                    "outline-variant": "#e0c0b6",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed-dim": "#f4be4e",
+                    "on-error-container": "#93000a",
+                    "surface-variant": "#e9e1dc",
+                    "on-surface-variant": "#58413a",
+                    "on-secondary-fixed-variant": "#5d4200"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sm": "12px",
+                    "base": "8px",
+                    "xs": "4px",
+                    "md": "24px",
+                    "container-max": "1200px",
+                    "lg": "48px",
+                    "gutter": "24px",
+                    "xl": "80px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "title-lg": ["Plus Jakarta Sans"],
+                    "body-lg": ["Work Sans"],
+                    "body-md": ["Work Sans"],
+                    "display-xl": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "label-md": ["Work Sans"]
+            },
+            "fontSize": {
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "title-lg": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-xl": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "headline-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .hero-zoom {
+            background-size: 110%;
+            transition: background-size 10s ease-out;
+        }
+        .hero-zoom:hover {
+            background-size: 115%;
+        }
+
+        @keyframes ant-crawl-1 {
+            0% { transform: translate(0, 0) rotate(90deg); }
+            25% { transform: translate(100px, 10px) rotate(85deg); }
+            50% { transform: translate(200px, -10px) rotate(95deg); }
+            75% { transform: translate(300px, 5px) rotate(80deg); }
+            100% { transform: translate(400px, 0) rotate(90deg); }
+        }
+        @keyframes ant-crawl-vertical {
+            0% { transform: translateY(0) rotate(180deg); }
+            100% { transform: translateY(200px) rotate(180deg); }
+        }
+        @keyframes ant-wiggle {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1) rotate(2deg); }
+        }
+        @keyframes ant-crawl-diagonal {
+            0% { transform: translate(-10px, -10px) rotate(45deg); }
+            100% { transform: translate(150px, 150px) rotate(45deg); }
+        }
+        @keyframes ant-crawl-horizontal-fast {
+            0% { transform: translateX(0) rotate(90deg); }
+            100% { transform: translateX(500px) rotate(90deg); }
+        }
+        @keyframes ant-crawl-edge {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(100px) rotate(0deg); }
+            55% { transform: translateY(100px) rotate(90deg); }
+            100% { transform: translate(100px, 100px) rotate(90deg); }
+        }
+        .ant-trail {
+            pointer-events: none;
+            position: absolute;
+            z-index: 10;
+            opacity: 0.4;
+            color: #2d1a12;
+            font-size: 12px !important;
+        }
+        .ant-animation-1 { animation: ant-crawl-1 20s linear infinite alternate; }
+        .ant-animation-2 { animation: ant-crawl-vertical 15s linear infinite alternate-reverse; }
+        .ant-small { font-size: 10px !important; }
+        .ant-slow { animation-duration: 30s !important; }
+        .ant-fast { animation-duration: 10s !important; }
+        
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden selection:bg-primary/20">
+    <!-- TopAppBar Component -->
+    <header id="main-header" class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl border-b border-orange-100/50 shadow-sm transition-all duration-500">
+        <nav class="flex justify-between items-center h-20 px-6 md:px-12 max-w-7xl mx-auto font-['Plus_Jakarta_Sans'] antialiased tracking-tight">
+            <div class="flex items-center gap-3 group cursor-pointer">
+                <div class="relative">
+                    <span class="material-symbols-outlined text-primary text-3xl animate-pulse" data-icon="wb_sunny">wb_sunny</span>
+                    <div class="absolute -inset-1 bg-primary/20 blur-lg rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </div>
+                <span class="text-2xl font-extrabold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Wufeng Chaoyang</span>
+            </div>
+            
+            <!-- Desktop Nav -->
+            <div class="hidden md:flex items-center gap-10 font-label-md">
+                <a class="relative text-on-surface/70 hover:text-primary transition-colors after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all hover:after:w-full" href="#about">活動介紹</a>
+                <a class="relative text-on-surface/70 hover:text-primary transition-colors after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all hover:after:w-full" href="#schedule">活動時程</a>
+                <a class="relative text-on-surface/70 hover:text-primary transition-colors after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all hover:after:w-full" href="#speakers">講師陣容</a>
+                <a class="relative text-on-surface/70 hover:text-primary transition-colors after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all hover:after:w-full" href="#dining">特色餐廳</a>
+                <button class="bg-primary hover:bg-primary-container text-white px-7 py-2.5 rounded-full font-bold active:scale-95 transition-all shadow-lg shadow-primary/20">
+                    立即報名
+                </button>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="menu-toggle" class="md:hidden text-primary p-2 hover:bg-primary/10 rounded-full transition-colors">
+                <span class="material-symbols-outlined" data-icon="menu">menu</span>
+            </button>
+        </nav>
+        
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="fixed inset-0 bg-white/95 backdrop-blur-2xl z-50 translate-x-full transition-transform duration-500 ease-in-out md:hidden">
+            <div class="flex flex-col h-full p-8">
+                <div class="flex justify-between items-center mb-12">
+                    <span class="text-2xl font-extrabold text-primary">Wufeng Chaoyang</span>
+                    <button id="menu-close" class="text-on-surface p-2">
+                        <span class="material-symbols-outlined text-3xl">close</span>
+                    </button>
+                </div>
+                <div class="flex flex-col gap-8 text-2xl font-bold">
+                    <a class="hover:text-primary transition-colors" href="#about">活動介紹</a>
+                    <a class="hover:text-primary transition-colors" href="#schedule">活動時程</a>
+                    <a class="hover:text-primary transition-colors" href="#speakers">講師陣容</a>
+                    <a class="hover:text-primary transition-colors" href="#dining">特色餐廳</a>
+                </div>
+                <div class="mt-auto pt-12 border-t border-orange-100">
+                    <button class="w-full bg-primary text-white py-5 rounded-2xl font-bold text-xl">立即報名</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <!-- Hero Section -->
+        <section class="relative h-[85vh] min-h-[600px] flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 z-0 scale-105 transition-transform duration-[10s] hero-zoom">
+                <img src="wufeng_sunrise_hero_1776847124955.png" alt="Wufeng Sunrise" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-b from-transparent via-on-background/20 to-surface"></div>
+                <!-- Mist layers -->
+                <div class="absolute inset-0 bg-white/5 backdrop-blur-[2px] opacity-40"></div>
+            </div>
+            
+            <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full text-center md:text-left">
+                <div class="max-w-3xl space-y-8">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-md rounded-full border border-white/30 text-white font-label-md animate-fade-in-up">
+                        <span class="w-2 h-2 bg-secondary rounded-full animate-ping"></span>
+                        2024 夏季系列活動
+                    </div>
+                    <h1 class="text-white font-display-xl text-display-xl leading-[1.1] drop-shadow-2xl animate-fade-in-up" style="animation-delay: 200ms">
+                        霧峰朝陽，<br/><span class="text-secondary-fixed">共創晨曦</span>
+                    </h1>
+                    <p class="text-white/90 font-body-lg text-body-lg max-w-xl drop-shadow-lg animate-fade-in-up" style="animation-delay: 400ms">
+                        探索台灣之心，體驗霧峰文化與朝陽精神。我們誠邀您一同參與這場充滿朝氣的社群盛典，讓在地能量發光發熱。
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 pt-4 animate-fade-in-up" style="animation-delay: 600ms">
+                        <button class="bg-primary text-white font-label-md px-10 py-4 rounded-full shadow-2xl shadow-primary/40 hover:shadow-primary/60 hover:-translate-y-1 transition-all active:scale-95 text-lg">
+                            立即探索活動
+                        </button>
+                        <button class="bg-white/10 backdrop-blur-md border border-white/30 text-white font-label-md px-10 py-4 rounded-full hover:bg-white/20 transition-all text-lg">
+                            了解更多細節
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Animated decorative elements (Ants) -->
+            <div class="ant-trail ant-animation-1 ant-small top-1/4 right-10" style="opacity: 0.3;"><span class="material-symbols-outlined">bug_report</span></div>
+            <div class="ant-trail ant-animation-2 ant-small bottom-20 left-1/3" style="opacity: 0.2; animation-delay: -2s;"><span class="material-symbols-outlined">bug_report</span></div>
+        </section>
+
+        <!-- About Section -->
+        <section class="py-xl max-w-7xl mx-auto px-6 md:px-12 relative" id="about">
+            <div class="text-center mb-20 space-y-4">
+                <span class="text-primary font-label-md tracking-widest uppercase bg-primary/5 px-4 py-1 rounded-full">Discovery</span>
+                <h2 class="font-headline-lg text-headline-lg text-on-surface">霧峰朝陽：在地精神的延續</h2>
+                <div class="w-24 h-1.5 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="group relative bg-white p-10 rounded-[2.5rem] shadow-xl shadow-orange-900/5 border border-orange-50 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-3 transition-all duration-500">
+                    <div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mb-8 text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 transform group-hover:rotate-12">
+                        <span class="material-symbols-outlined text-4xl" data-icon="landscape">landscape</span>
+                    </div>
+                    <h3 class="font-title-lg text-title-lg mb-4">在地探索</h3>
+                    <p class="text-on-surface-variant font-body-md leading-relaxed">深度導覽霧峰自然生態與歷史古蹟，發掘城市角落隱藏的美麗與故事。從林家花園到光復新村，每一處都是歷史的見證。</p>
+                    <div class="mt-8 flex items-center text-primary font-bold gap-2 cursor-pointer group/link">
+                        <span>查看導覽地圖</span>
+                        <span class="material-symbols-outlined transition-transform group-hover/link:translate-x-2">arrow_forward</span>
+                    </div>
+                </div>
+
+                <div class="group relative bg-white p-10 rounded-[2.5rem] shadow-xl shadow-orange-900/5 border border-orange-50 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-3 transition-all duration-500">
+                    <div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mb-8 text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 transform group-hover:rotate-12">
+                        <span class="material-symbols-outlined text-4xl" data-icon="groups">groups</span>
+                    </div>
+                    <h3 class="font-title-lg text-title-lg mb-4">社群共榮</h3>
+                    <p class="text-on-surface-variant font-body-md leading-relaxed">匯聚朝陽科技大學與地方能量，建立互助共好的永續社區生活圈。透過學術與在地的交流，激盪出更多創意的火花。</p>
+                    <div class="mt-8 flex items-center text-primary font-bold gap-2 cursor-pointer group/link">
+                        <span>加入志工計畫</span>
+                        <span class="material-symbols-outlined transition-transform group-hover/link:translate-x-2">arrow_forward</span>
+                    </div>
+                </div>
+
+                <div class="group relative bg-white p-10 rounded-[2.5rem] shadow-xl shadow-orange-900/5 border border-orange-50 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-3 transition-all duration-500">
+                    <div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mb-8 text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 transform group-hover:rotate-12">
+                        <span class="material-symbols-outlined text-4xl" data-icon="restaurant_menu">restaurant_menu</span>
+                    </div>
+                    <h3 class="font-title-lg text-title-lg mb-4">特色食光</h3>
+                    <p class="text-on-surface-variant font-body-md leading-relaxed">品嚐在地食材打造的創意料理，透過味蕾感受霧峰土地的豐饒與暖意。結合法式工藝與在地小農的心血結晶。</p>
+                    <div class="mt-8 flex items-center text-primary font-bold gap-2 cursor-pointer group/link">
+                        <span>預約私房料理</span>
+                        <span class="material-symbols-outlined transition-transform group-hover/link:translate-x-2">arrow_forward</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Floating Ant -->
+            <div class="ant-trail ant-animation-1 top-20 left-40" style="animation-delay: -5s; opacity: 0.3;"><span class="material-symbols-outlined">bug_report</span></div>
+        </section>
+
+        <!-- Feature Section with Generated Image -->
+        <section class="py-xl bg-surface-container-low relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="relative group">
+                    <div class="absolute -inset-4 bg-primary/20 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
+                    <img src="wufeng_exploration_1776847222692.png" alt="Wufeng Culture" class="relative rounded-[3rem] shadow-2xl z-10 hover:scale-[1.02] transition-transform duration-700">
+                    <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-secondary/10 rounded-full blur-2xl"></div>
+                </div>
+                <div class="space-y-8">
+                    <h2 class="font-headline-lg text-headline-lg">深耕在地，<br/><span class="text-primary">連接傳統與現代</span></h2>
+                    <p class="text-on-surface-variant text-body-lg leading-relaxed">
+                        霧峰不僅是台中的文化重鎮，更是創意與傳統交織的沃土。我們致力於將這些珍貴的文化資產，透過現代化的呈現方式，讓更多人看見霧峰之美。
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-4">
+                            <div class="w-8 h-8 bg-tertiary/10 rounded-full flex items-center justify-center text-tertiary">
+                                <span class="material-symbols-outlined text-xl">check</span>
+                            </div>
+                            <span class="font-bold">超過 50 個在地合作夥伴</span>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <div class="w-8 h-8 bg-tertiary/10 rounded-full flex items-center justify-center text-tertiary">
+                                <span class="material-symbols-outlined text-xl">check</span>
+                            </div>
+                            <span class="font-bold">年度三大主題文化慶典</span>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <div class="w-8 h-8 bg-tertiary/10 rounded-full flex items-center justify-center text-tertiary">
+                                <span class="material-symbols-outlined text-xl">check</span>
+                            </div>
+                            <span class="font-bold">數位導覽地圖即時更新</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline Schedule -->
+        <section class="py-xl" id="schedule">
+            <div class="max-w-7xl mx-auto px-6 md:px-12">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-6">
+                    <div class="space-y-4">
+                        <span class="text-tertiary font-label-md tracking-widest uppercase bg-tertiary/10 px-4 py-1 rounded-full">Agenda</span>
+                        <h2 class="font-headline-lg text-headline-lg">活動盛事時程</h2>
+                    </div>
+                    <p class="text-on-surface-variant max-w-md font-body-md text-lg">一整天豐富的行程安排，從晨曦到黃昏，與我們一起充實每一刻，體驗霧峰的百變風情。</p>
+                </div>
+                
+                <div class="relative">
+                    <!-- Progress Line -->
+                    <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-tertiary/5 via-tertiary/30 to-tertiary/5 -translate-x-1/2 hidden md:block"></div>
+                    
+                    <!-- Item 1 -->
+                    <div class="relative flex flex-col md:flex-row md:items-center justify-between group py-12">
+                        <div class="md:w-[45%] mb-4 md:mb-0 text-right pr-12 hidden md:block group-hover:-translate-x-2 transition-transform">
+                            <span class="text-primary font-bold text-3xl font-display-xl">08:00</span>
+                            <span class="block text-on-surface/50 font-label-md">AM - MORNING</span>
+                        </div>
+                        <div class="absolute left-4 md:left-1/2 w-6 h-6 bg-white border-4 border-tertiary rounded-full -translate-x-1/2 z-10 group-hover:scale-150 group-hover:bg-tertiary transition-all duration-500 shadow-lg shadow-tertiary/20"></div>
+                        <div class="pl-12 md:pl-12 md:w-[45%]">
+                            <div class="bg-white p-8 rounded-[2rem] shadow-xl shadow-orange-900/5 border-l-8 border-tertiary group-hover:shadow-2xl transition-all duration-500 group-hover:translate-x-2">
+                                <span class="md:hidden text-primary font-bold font-label-md block mb-2">08:00 AM</span>
+                                <h4 class="font-title-lg text-title-lg mb-4">晨曦報到與開幕式</h4>
+                                <p class="text-on-surface-variant font-body-md leading-relaxed">在朝陽山麓下迎接第一道曙光，開啟美好的一天。現場將有在地音樂家帶來的輕音樂表演。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="relative flex flex-col md:flex-row md:items-center justify-between group py-12">
+                        <div class="pl-12 md:pl-0 md:w-[45%] md:text-right md:pr-12 order-2 md:order-1">
+                            <div class="bg-white p-8 rounded-[2rem] shadow-xl shadow-orange-900/5 border-l-8 md:border-l-0 md:border-r-8 border-secondary group-hover:shadow-2xl transition-all duration-500 group-hover:-translate-x-2">
+                                <span class="md:hidden text-secondary font-bold font-label-md block mb-2">10:00 AM</span>
+                                <h4 class="font-title-lg text-title-lg mb-4">人文地景漫步</h4>
+                                <p class="text-on-surface-variant font-body-md leading-relaxed">漫遊在地古厝與創意市集，深入體驗霧峰的人文氣息。導覽老師將分享許多不為人知的在地小故事。</p>
+                            </div>
+                        </div>
+                        <div class="absolute left-4 md:left-1/2 w-6 h-6 bg-white border-4 border-secondary rounded-full -translate-x-1/2 z-10 group-hover:scale-150 group-hover:bg-secondary transition-all duration-500 shadow-lg shadow-secondary/20 order-1 md:order-2"></div>
+                        <div class="md:w-[45%] mb-4 md:mb-0 text-left pl-12 hidden md:block order-3 group-hover:translate-x-2 transition-transform">
+                            <span class="text-secondary font-bold text-3xl font-display-xl">10:00</span>
+                            <span class="block text-on-surface/50 font-label-md">AM - MIDDAY</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Speakers Section -->
+        <section class="py-xl bg-surface-container" id="speakers">
+            <div class="max-w-7xl mx-auto px-6 md:px-12">
+                <div class="text-center mb-20 space-y-4">
+                    <span class="text-primary font-label-md tracking-widest uppercase">Expertise</span>
+                    <h2 class="font-headline-lg text-headline-lg">特邀講師陣容</h2>
+                    <p class="text-on-surface-variant max-w-2xl mx-auto text-lg">與在地文化領袖與產學專家面對面，啟發對社區營造的全新想像。</p>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <!-- Speaker 1 -->
+                    <div class="text-center group">
+                        <div class="relative w-40 h-40 mx-auto mb-6">
+                            <div class="absolute inset-0 bg-primary rounded-full scale-0 group-hover:scale-105 transition-transform duration-500 opacity-20"></div>
+                            <img src="https://i.pravatar.cc/300?u=1" alt="Speaker" class="w-full h-full object-cover rounded-full border-4 border-primary p-1 group-hover:p-0 transition-all duration-500">
+                        </div>
+                        <h4 class="font-bold text-xl mb-1">林志明 教授</h4>
+                        <p class="text-on-surface-variant text-sm">朝陽科技大學 設計學院</p>
+                    </div>
+                    <!-- Speaker 2 -->
+                    <div class="text-center group">
+                        <div class="relative w-40 h-40 mx-auto mb-6">
+                            <div class="absolute inset-0 bg-primary rounded-full scale-0 group-hover:scale-105 transition-transform duration-500 opacity-20"></div>
+                            <img src="https://i.pravatar.cc/300?u=2" alt="Speaker" class="w-full h-full object-cover rounded-full border-4 border-primary p-1 group-hover:p-0 transition-all duration-500">
+                        </div>
+                        <h4 class="font-bold text-xl mb-1">王曉芳 女士</h4>
+                        <p class="text-on-surface-variant text-sm">霧峰文化工作室 創辦人</p>
+                    </div>
+                    <!-- Speaker 3 -->
+                    <div class="text-center group">
+                        <div class="relative w-40 h-40 mx-auto mb-6">
+                            <div class="absolute inset-0 bg-primary rounded-full scale-0 group-hover:scale-105 transition-transform duration-500 opacity-20"></div>
+                            <img src="https://i.pravatar.cc/300?u=3" alt="Speaker" class="w-full h-full object-cover rounded-full border-4 border-primary p-1 group-hover:p-0 transition-all duration-500">
+                        </div>
+                        <h4 class="font-bold text-xl mb-1">陳建國 主廚</h4>
+                        <p class="text-on-surface-variant text-sm">米其林在地推薦餐廳</p>
+                    </div>
+                    <!-- Speaker 4 -->
+                    <div class="text-center group">
+                        <div class="relative w-40 h-40 mx-auto mb-6">
+                            <div class="absolute inset-0 bg-primary rounded-full scale-0 group-hover:scale-105 transition-transform duration-500 opacity-20"></div>
+                            <img src="https://i.pravatar.cc/300?u=4" alt="Speaker" class="w-full h-full object-cover rounded-full border-4 border-primary p-1 group-hover:p-0 transition-all duration-500">
+                        </div>
+                        <h4 class="font-bold text-xl mb-1">張美玲 經理</h4>
+                        <p class="text-on-surface-variant text-sm">永續社區發展協會</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dining Section -->
+        <section class="py-xl bg-surface relative overflow-hidden" id="dining">
+            <div class="max-w-7xl mx-auto px-6 md:px-12">
+                <div class="text-center mb-20 space-y-4">
+                    <span class="text-primary font-label-md tracking-widest uppercase">Gastronomy</span>
+                    <h2 class="font-headline-lg text-headline-lg">特色餐廳 - 朝陽食光</h2>
+                    <p class="text-on-surface-variant max-w-2xl mx-auto text-lg leading-relaxed">精選大里與霧峰在地鮮材，融合現代料理美學，為您呈現最具深度的味蕾旅程。讓土地的味道在舌尖綻放。</p>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div class="relative">
+                        <div class="absolute -top-10 -left-10 w-40 h-40 bg-secondary/10 rounded-full blur-3xl"></div>
+                        <img src="wufeng_gastronomy_1776847312857.png" alt="Gourmet Dining" class="rounded-[3rem] shadow-2xl relative z-10 hover:scale-[1.02] transition-transform duration-700">
+                        <div class="absolute -bottom-10 -right-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+                    </div>
+                    
+                    <div class="space-y-10">
+                        <div class="bg-white p-10 rounded-[3rem] shadow-xl shadow-orange-900/5 border border-orange-50">
+                            <h3 class="text-3xl font-bold mb-8 flex items-center gap-4">
+                                <span class="material-symbols-outlined text-primary text-4xl">restaurant</span>
+                                美食特色說明
+                            </h3>
+                            <div class="space-y-8">
+                                <div class="flex gap-6">
+                                    <div class="w-14 h-14 shrink-0 bg-tertiary/10 rounded-2xl flex items-center justify-center text-tertiary">
+                                        <span class="material-symbols-outlined text-3xl">eco</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-xl mb-2">產地直送新鮮食材</h4>
+                                        <p class="text-on-surface-variant">每日由霧峰、大里在地小農親送，保證蔬菜與果物的最高鮮甜度。支持在地農業，品嚐最純粹的美味。</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-6">
+                                    <div class="w-14 h-14 shrink-0 bg-orange-100 rounded-2xl flex items-center justify-center text-primary">
+                                        <span class="material-symbols-outlined text-3xl">skillet</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-xl mb-2">法式工藝與中式靈魂</h4>
+                                        <p class="text-on-surface-variant">主廚結合精緻法餐手法，重新詮釋台灣傳統料理，打造驚喜的跨界美味。讓傳統小吃展現現代時尚感。</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-6">
+                                    <div class="w-14 h-14 shrink-0 bg-secondary/10 rounded-2xl flex items-center justify-center text-secondary">
+                                        <span class="material-symbols-outlined text-3xl">energy_savings_leaf</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-xl mb-2">永續慢食文化</h4>
+                                        <p class="text-on-surface-variant">提倡環保低碳烹飪，減少食物浪費，與土地建立和諧共榮的共食文化。每一口都是對環境的溫柔守護。</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-12">
+                                <button class="w-full bg-primary text-white py-5 rounded-2xl font-bold text-lg shadow-xl shadow-primary/30 hover:shadow-primary/50 transition-all active:scale-95">
+                                    立即預約朝陽食光
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Floating Ants -->
+            <div class="ant-trail ant-small top-20 right-1/4" style="animation: ant-crawl-diagonal 18s linear infinite;"><span class="material-symbols-outlined">bug_report</span></div>
+            <div class="ant-trail ant-small bottom-10 left-20" style="animation: ant-wiggle 4s infinite;"><span class="material-symbols-outlined">bug_report</span></div>
+        </section>
+
+        <!-- Map Section -->
+        <section class="py-xl bg-surface-container-low relative">
+            <div class="max-w-7xl mx-auto px-6 md:px-12">
+                <div class="text-center mb-16">
+                    <h2 class="font-headline-lg text-headline-lg">活動地點</h2>
+                    <p class="text-on-surface-variant mt-4 text-lg">台中市霧峰區吉峰東路168號 - 朝陽科技大學</p>
+                </div>
+                <div class="relative group">
+                    <div class="absolute -inset-2 bg-gradient-to-r from-primary/20 to-secondary/20 blur-xl rounded-[3rem] opacity-50 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="relative rounded-[3rem] overflow-hidden shadow-2xl h-[500px] border-8 border-white z-10">
+                        <iframe allowfullscreen="" height="100%" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3642.569363539257!2d120.71617057606627!3d24.08144217822004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693b79313a0169%3A0xe54d207f287f3b89!2z5pyd6Zm956eR5oqA5aSn5a24!5e0!3m2!1szh-TW!2stw!4v1709123456789!5m2!1szh-TW!2stw" style="border:0;" width="100%"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-xl bg-primary-fixed text-on-primary-fixed relative overflow-hidden" id="contact">
+            <!-- Decorative circles -->
+            <div class="absolute -top-24 -left-24 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-on-primary-container/10 rounded-full blur-3xl"></div>
+            
+            <div class="max-w-7xl mx-auto px-6 md:px-12 text-center space-y-10 relative z-10">
+                <h2 class="font-headline-lg text-headline-lg drop-shadow-sm">準備好加入這場晨曦之約嗎？</h2>
+                <p class="text-on-primary-fixed-variant text-body-lg max-w-2xl mx-auto opacity-90 leading-relaxed">
+                    無論您是在地居民、學生或是有意前往霧峰旅遊的朋友，我們都熱烈歡迎您的參與。現在就報名，與我們共同開啟霧峰的新篇章。
+                </p>
+                <div class="flex flex-col md:flex-row items-center justify-center gap-8 pt-6">
+                    <a class="flex items-center gap-4 bg-white px-10 py-5 rounded-2xl text-primary font-bold shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all text-xl" href="tel:0423323000">
+                        <span class="material-symbols-outlined text-3xl" data-icon="call">call</span>
+                        04-2332-3000
+                    </a>
+                    <button class="bg-primary text-white px-12 py-5 rounded-2xl font-bold shadow-xl hover:bg-on-primary-container hover:-translate-y-1 transition-all text-xl">
+                        聯繫客服詢問
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Component -->
+    <footer class="w-full bg-stone-50 border-t border-stone-200">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 py-20 px-6 md:px-12 max-w-7xl mx-auto font-['Plus_Jakarta_Sans']">
+            <div class="space-y-8">
+                <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary text-3xl" data-icon="wb_sunny">wb_sunny</span>
+                    <span class="text-2xl font-bold text-slate-800">Wufeng Chaoyang</span>
+                </div>
+                <p class="font-body-md text-slate-600 leading-relaxed text-lg">致力於推廣霧峰在地文化與永續社群發展。透過活動連結人心，與土地共同呼吸，創造充滿朝氣的未來。</p>
+                <div class="flex gap-5">
+                    <a class="w-12 h-12 bg-white border border-stone-200 rounded-full flex items-center justify-center text-slate-600 hover:bg-primary hover:text-white hover:border-primary transition-all shadow-sm" href="#">
+                        <span class="material-symbols-outlined">share</span>
+                    </a>
+                    <a class="w-12 h-12 bg-white border border-stone-200 rounded-full flex items-center justify-center text-slate-600 hover:bg-primary hover:text-white hover:border-primary transition-all shadow-sm" href="#">
+                        <span class="material-symbols-outlined">mail</span>
+                    </a>
+                </div>
+            </div>
+            
+            <div>
+                <h5 class="font-bold text-slate-800 text-xl mb-8">探索霧峰</h5>
+                <ul class="space-y-4 text-slate-600 text-lg">
+                    <li><a class="hover:text-primary transition-colors flex items-center gap-2 group" href="#about"><span class="w-1.5 h-1.5 bg-primary/30 rounded-full group-hover:w-3 transition-all"></span>活動介紹</a></li>
+                    <li><a class="hover:text-primary transition-colors flex items-center gap-2 group" href="#schedule"><span class="w-1.5 h-1.5 bg-primary/30 rounded-full group-hover:w-3 transition-all"></span>活動時程</a></li>
+                    <li><a class="hover:text-primary transition-colors flex items-center gap-2 group" href="#speakers"><span class="w-1.5 h-1.5 bg-primary/30 rounded-full group-hover:w-3 transition-all"></span>講師陣容</a></li>
+                    <li><a class="hover:text-primary transition-colors flex items-center gap-2 group" href="#dining"><span class="w-1.5 h-1.5 bg-primary/30 rounded-full group-hover:w-3 transition-all"></span>特色餐廳</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h5 class="font-bold text-slate-800 text-xl mb-8">聯絡資訊</h5>
+                <ul class="space-y-6 text-slate-600 text-lg">
+                    <li class="flex gap-4">
+                        <span class="material-symbols-outlined text-primary">call</span>
+                        <a class="hover:text-primary transition-colors" href="tel:0423323000">04-2332-3000</a>
+                    </li>
+                    <li class="flex gap-4">
+                        <span class="material-symbols-outlined text-primary">location_on</span>
+                        <span>413 台中市霧峰區吉峰東路168號<br/>朝陽科技大學</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h5 class="font-bold text-slate-800 text-xl mb-8">最新消息</h5>
+                <p class="text-slate-600 mb-6 text-lg">訂閱我們的電子報，獲取最新活動資訊與霧峰在地故事。</p>
+                <div class="mt-4 p-6 bg-orange-100/50 rounded-[2rem] border border-orange-100">
+                    <span class="text-primary font-bold block mb-2 text-sm uppercase tracking-widest">Coming Soon</span>
+                    <p class="text-slate-800 font-bold">2024 夏季社群共融市集</p>
+                    <p class="text-slate-500 text-sm mt-1">地點：光復新村 創意廣場</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto py-10 border-t border-stone-200 text-center">
+            <p class="font-['Plus_Jakarta_Sans'] text-slate-500">© 2024 Wufeng Chaoyang. All rights reserved. <br class="md:hidden"/>Cultivating community and culture through passion.</p>
+        </div>
+        
+        <!-- Edge Ant -->
+        <div class="ant-trail ant-small bottom-10 left-10" style="animation: ant-crawl-edge 15s linear infinite; opacity: 0.3;"><span class="material-symbols-outlined">bug_report</span></div>
+    </footer>
+
+    <style>
+        @keyframes fade-in-up {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-up {
+            animation: fade-in-up 1s ease-out forwards;
+        }
+    </style>
+
+    <script>
+        // Header scroll behavior
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 100) {
+                header.classList.remove('h-20', 'bg-white/70');
+                header.classList.add('h-16', 'bg-white/90', 'shadow-lg');
+            } else {
+                header.classList.remove('h-16', 'bg-white/90', 'shadow-lg');
+                header.classList.add('h-20', 'bg-white/70');
+            }
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const menuClose = document.getElementById('menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-full');
+        });
+
+        const closeMenu = () => {
+            mobileMenu.classList.add('translate-x-full');
+        };
+
+        menuClose.addEventListener('click', closeMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+        // Intersection Observer for section animations
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-12');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            if (!section.classList.contains('relative')) {
+                section.classList.add('transition-all', 'duration-1000', 'ease-out', 'opacity-0', 'translate-y-12');
+                observer.observe(section);
+            }
+        });
+
+        // Smooth scroll for anchors
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body></html>
